@@ -1,6 +1,7 @@
 const express = require('express');
 const router = require('./router/router.js');
-require('dotenv').config();
+let tmp = require('dotenv').config();
+console.log(tmp)
 //server will be listening on this port, located in .env file of the project
 const PORT = process.env.PORT; 
 
