@@ -10,7 +10,7 @@ const convertCompanyXMLtoJSON =  (xml) => {
         let companyParsed = JSON.parse(convertedCompany);
         //preparing object with required data format
         company = {
-            "id": companyParsed.Data.id._text,
+            "id": parseInt(companyParsed.Data.id._text),
             "name": companyParsed.Data.name._text,
             "description": companyParsed.Data.description._text,
         }

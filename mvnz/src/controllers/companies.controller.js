@@ -9,7 +9,7 @@ const getCompanies = async(req, res, next)=>{
     if (isNaN(id)) {
        res.status(404);
        res.json({
-         error : 404, 
+         error : "404 Id is not provided or not a number",
          error_description: "Id is not provided or not a number" 
        });
        return res.status(404).end();
@@ -22,7 +22,7 @@ const getCompanies = async(req, res, next)=>{
     if (!company){
       res.status(404);
       res.json({
-        error : 404, 
+        error : "404 Company was not found", 
         error_description: "Company was not found" 
       });
       return res.status(404).end();
@@ -30,7 +30,7 @@ const getCompanies = async(req, res, next)=>{
     } else if(typeof company === 'object') {
        res.status(company.response.status);
        res.json({
-         error : company.response.status, 
+         error : company.response.status + ` Request failed on id ${id}`, 
          error_description: `Request failed on id ${id}`
        });
        return res.status(404).end();

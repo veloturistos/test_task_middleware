@@ -1,7 +1,7 @@
 const express = require('express');
 const router = require('./router/router.js');
-let tmp = require('dotenv').config();
-console.log(tmp)
+let env = require('dotenv').config();
+console.log("Init env variables "+ JSON.stringify(env))
 //server will be listening on this port, located in .env file of the project
 const PORT = process.env.PORT; 
 
@@ -11,7 +11,7 @@ app.use(router);
 
 //error for non existed URLs
 app.use(function(req, res) {
-    return res.status(404).send({url: req.originalUrl + ' not found'})
+    return res.status(404).send({ error : "404 url not found", error_description: req.originalUrl + ' not found'})
 });
 
 
